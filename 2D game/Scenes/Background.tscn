@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://35u4b6xv0kj3"]
+
+[ext_resource type="Texture2D" uid="uid://db1xmjmpa2q84" path="res://Assets/background/background.png" id="1_o4f4k"]
+
+[node name="Background" type="Node2D"]
+metadata/_edit_group_ = true
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+autoscroll = Vector2(100, 1000)
+repeat_times = 2
+
+[node name="Background" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(299, -2507)
+scale = Vector2(1.87928, 1.87928)
+texture = ExtResource("1_o4f4k")

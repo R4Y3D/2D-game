@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://doym14lralqv7"]
+
+[ext_resource type="PackedScene" uid="uid://35u4b6xv0kj3" path="res://Scenes/Background.tscn" id="1_cpy2o"]
+[ext_resource type="PackedScene" uid="uid://b50jbwwdxkb52" path="res://Scenes/Player.tscn" id="1_losjw"]
+
+[node name="main" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("1_cpy2o")]
+
+[node name="player" parent="." instance=ExtResource("1_losjw")]
+position = Vector2(-223, -176)
+scale = Vector2(1.61122, 1.56783)
+speed = 300.0
