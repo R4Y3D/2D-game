@@ -1,15 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://35u4b6xv0kj3"]
+[gd_scene load_steps=3 format=3 uid="uid://35u4b6xv0kj3"]
 
 [ext_resource type="Texture2D" uid="uid://db1xmjmpa2q84" path="res://Assets/background/background.png" id="1_o4f4k"]
+[ext_resource type="Texture2D" uid="uid://dlpvkg4dk5sm6" path="res://Assets/background/clouds.png" id="2_ixh5q"]
 
 [node name="Background" type="Node2D"]
 metadata/_edit_group_ = true
 
-[node name="Parallax2D" type="Parallax2D" parent="."]
-autoscroll = Vector2(100, 1000)
-repeat_times = 2
+[node name="ParallaxClouds" type="Parallax2D" parent="."]
+repeat_size = Vector2(0, 1203)
+autoscroll = Vector2(0, 100)
+repeat_times = 4
 
-[node name="Background" type="Sprite2D" parent="Parallax2D"]
+[node name="Clouds" type="Sprite2D" parent="ParallaxClouds"]
+position = Vector2(301, -603)
+scale = Vector2(1.88, 1.88)
+texture = ExtResource("2_ixh5q")
+
+[node name="ParallaxBg" type="Parallax2D" parent="."]
+repeat_size = Vector2(0, 10000)
+autoscroll = Vector2(0, 75)
+
+[node name="Background" type="Sprite2D" parent="ParallaxBg"]
 position = Vector2(299, -2507)
 scale = Vector2(1.87928, 1.87928)
 texture = ExtResource("1_o4f4k")
