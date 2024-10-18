@@ -8,6 +8,4 @@
 [node name="Background" parent="." instance=ExtResource("1_cpy2o")]
 
 [node name="player" parent="." instance=ExtResource("1_losjw")]
-position = Vector2(-223, -176)
-scale = Vector2(1.61122, 1.56783)
-speed = 300.0
+speed = 500.0

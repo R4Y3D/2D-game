@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dlpvkg4dk5sm6" path="res://Assets/background/clouds.png" id="2_ixh5q"]
 
 [node name="Background" type="Node2D"]
+scale = Vector2(1.6, 1.6)
 metadata/_edit_group_ = true
 
 [node name="ParallaxClouds" type="Parallax2D" parent="."]
