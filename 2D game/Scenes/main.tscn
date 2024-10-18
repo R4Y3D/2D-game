@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://doym14lralqv7"]
+[gd_scene load_steps=4 format=3 uid="uid://doym14lralqv7"]
 
 [ext_resource type="PackedScene" uid="uid://35u4b6xv0kj3" path="res://Scenes/Background.tscn" id="1_cpy2o"]
 [ext_resource type="PackedScene" uid="uid://b50jbwwdxkb52" path="res://Scenes/Player.tscn" id="1_losjw"]
+[ext_resource type="PackedScene" uid="uid://c4mgsquy3xfjc" path="res://Scenes/walls.tscn" id="3_cn1dg"]
 
 [node name="main" type="Node2D"]
 
@@ -9,3 +10,5 @@
 
 [node name="player" parent="." instance=ExtResource("1_losjw")]
 speed = 500.0
+
+[node name="Walls" parent="." instance=ExtResource("3_cn1dg")]

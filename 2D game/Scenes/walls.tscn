@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4mgsquy3xfjc"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_6oddg"]
+b = Vector2(4.20066e-05, 961)
+
+[node name="Walls" type="StaticBody2D"]
+
+[node name="topWall" type="CollisionShape2D" parent="."]
+position = Vector2(961, -1)
+rotation = 1.5708
+shape = SubResource("SegmentShape2D_6oddg")
+
+[node name="leftWall" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("SegmentShape2D_6oddg")
+
+[node name="leftWall2" type="CollisionShape2D" parent="."]
+position = Vector2(1, 322)
+shape = SubResource("SegmentShape2D_6oddg")
+
+[node name="rightWall" type="CollisionShape2D" parent="."]
+position = Vector2(959, 0)
+shape = SubResource("SegmentShape2D_6oddg")
+
+[node name="rightWall2" type="CollisionShape2D" parent="."]
+position = Vector2(959, 322)
+shape = SubResource("SegmentShape2D_6oddg")
+
+[node name="bottomWall" type="CollisionShape2D" parent="."]
+position = Vector2(961, 1281)
+rotation = 1.5708
+shape = SubResource("SegmentShape2D_6oddg")

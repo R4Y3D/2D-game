@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b50jbwwdxkb52"]
+[gd_scene load_steps=20 format=3 uid="uid://b50jbwwdxkb52"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_08n36"]
 [ext_resource type="Texture2D" uid="uid://bmk1x3uu43gxf" path="res://Assets/spritesheet_player.png" id="2_m54qx"]
@@ -55,17 +55,9 @@ region = Rect2(48, 58, 48, 58)
 atlas = ExtResource("2_m54qx")
 region = Rect2(96, 58, 48, 58)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qy3tk"]
-atlas = ExtResource("2_m54qx")
-region = Rect2(0, 0, 48, 58)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_o7rtk"]
 atlas = ExtResource("2_m54qx")
 region = Rect2(0, 116, 48, 58)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8gygo"]
-atlas = ExtResource("2_m54qx")
-region = Rect2(0, 0, 48, 58)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e4qfw"]
 atlas = ExtResource("2_m54qx")
@@ -93,7 +85,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"stop",
-"speed": 7.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -102,9 +94,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2qlii")
 }],
-"loop": false,
+"loop": true,
 "name": &"thrustBackward",
-"speed": 7.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -144,9 +136,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qy3tk")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_o7rtk")
 }],
 "loop": false,
@@ -155,9 +144,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8gygo")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_e4qfw")
 }],
 "loop": false,
@@ -165,8 +151,9 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tlobn"]
-size = Vector2(7.82094, 9.05854)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xa0a6"]
+radius = 5.40018
+height = 12.0781
 
 [node name="player" type="CharacterBody2D"]
 position = Vector2(457, 1000)
@@ -175,11 +162,11 @@ script = ExtResource("1_08n36")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0.14727, 1.01155)
+position = Vector2(-6.70552e-07, 0.905838)
 sprite_frames = SubResource("SpriteFrames_r47vg")
 animation = &"idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.188416, 0.603821)
+[node name="hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(-4.05312e-06, 1.2078)
 scale = Vector2(1.01176, 1)
-shape = SubResource("RectangleShape2D_tlobn")
+shape = SubResource("CapsuleShape2D_xa0a6")
