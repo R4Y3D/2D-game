@@ -11,6 +11,9 @@ class_name customFunctions
 func bullet_collide_body(body_rid:RID,body:Node,body_shape_index:int,local_shape_index:int,shared_area:Area2D, B:Dictionary, b:RID) -> void:
 	## you can use B["props"]["damage"] to get the bullet's damage
 	## you can use B["props"]["<your custom data name>"] to get the bullet's custom data
+
+	if body.is_in_group("Player"):
+		body.take_damage();
 	pass
 
 
