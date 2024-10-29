@@ -3,7 +3,7 @@
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_6oddg"]
 b = Vector2(4.20066e-05, 961)
 
-[node name="Walls" type="StaticBody2D"]
+[node name="walls" type="StaticBody2D"]
 
 [node name="topWall" type="CollisionShape2D" parent="."]
 position = Vector2(961, -1)
