@@ -52,7 +52,8 @@ curve = SubResource("Curve2D_sydvm")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 position = Vector2(773, -51)
-rotation = 0.319602
+rotation = 0.00723407
+rotates = false
 
 [node name="Enemy" parent="Path2D/PathFollow2D" instance=ExtResource("1_g8ylc")]
 
