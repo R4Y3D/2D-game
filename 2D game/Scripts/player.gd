@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var anim = $AnimatedSprite2D
-@onready var bullet_scene = preload("res://Scenes/player bullet.tscn")  # Preload your player bullet scene
+@onready var bullet_scene = preload("res://Scenes/player/player bullet.tscn")  # Preload your player bullet scene
 @onready var shield = $Shield
 @onready var explosion_anim = $Explosion
 

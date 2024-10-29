@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://doym14lralqv7"]
 
-[ext_resource type="PackedScene" uid="uid://35u4b6xv0kj3" path="res://Scenes/Background.tscn" id="1_cpy2o"]
-[ext_resource type="PackedScene" uid="uid://b50jbwwdxkb52" path="res://Scenes/Player.tscn" id="1_losjw"]
-[ext_resource type="PackedScene" uid="uid://c4mgsquy3xfjc" path="res://Scenes/walls.tscn" id="3_cn1dg"]
-[ext_resource type="PackedScene" uid="uid://b5mda5q882tlm" path="res://Scenes/enemyanim.tscn" id="4_ix7oa"]
+[ext_resource type="PackedScene" uid="uid://35u4b6xv0kj3" path="res://Scenes/background/Background.tscn" id="1_cpy2o"]
+[ext_resource type="PackedScene" uid="uid://b50jbwwdxkb52" path="res://Scenes/player/Player.tscn" id="1_losjw"]
+[ext_resource type="PackedScene" uid="uid://c4mgsquy3xfjc" path="res://Scenes/background/walls.tscn" id="3_cn1dg"]
+[ext_resource type="PackedScene" uid="uid://b5mda5q882tlm" path="res://Scenes/enemies/grey ships anim.tscn" id="4_ix7oa"]
 
 [node name="main" type="Node2D"]
 
@@ -15,4 +15,4 @@ speed = 500.0
 [node name="walls" parent="." instance=ExtResource("3_cn1dg")]
 
 [node name="Enemyanim" parent="." instance=ExtResource("4_ix7oa")]
-position = Vector2(-419, 0)
+position = Vector2(889, 131)

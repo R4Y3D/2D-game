@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbk0fcg5bs060"
-path="res://.godot/imported/player bullet.png-5384bf5eb6a6795c4ae3f5d4b3f5c3c4.ctex"
+uid="uid://ba0g55hhcgnce"
+path="res://.godot/imported/grey ship.png-738cacd243a2c330efa3082838604fdc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/player bullet.png"
-dest_files=["res://.godot/imported/player bullet.png-5384bf5eb6a6795c4ae3f5d4b3f5c3c4.ctex"]
+source_file="res://Assets/enemies/grey ship.png"
+dest_files=["res://.godot/imported/grey ship.png-738cacd243a2c330efa3082838604fdc.ctex"]
 
 [params]
 

@@ -1,12 +1,12 @@
 extends Area2D
 
-@export var speed: float = 400.0  # Speed of the bullet
+@export var speed: float = 800.0  # Speed of the bullet
 
 var direction: Vector2
 
 func _ready() -> void:
 	# Set a timer to delete the bullet after a certain duration
-	await get_tree().create_timer(20.0).timeout  # Bullet exists for 20 seconds
+	await get_tree().create_timer(5.0).timeout  # Bullet exists for 20 seconds
 	queue_free()
 
 func _process(delta: float) -> void:
