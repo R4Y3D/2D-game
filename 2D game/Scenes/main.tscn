@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://doym14lralqv7"]
+[gd_scene load_steps=5 format=3 uid="uid://doym14lralqv7"]
 
 [ext_resource type="PackedScene" uid="uid://35u4b6xv0kj3" path="res://Scenes/Background.tscn" id="1_cpy2o"]
 [ext_resource type="PackedScene" uid="uid://b50jbwwdxkb52" path="res://Scenes/player.tscn" id="1_losjw"]
 [ext_resource type="PackedScene" uid="uid://c4mgsquy3xfjc" path="res://Scenes/walls.tscn" id="3_cn1dg"]
+[ext_resource type="PackedScene" uid="uid://ds45grul2fdyo" path="res://Scenes/enemy.tscn" id="4_mydxp"]
 
 [node name="main" type="Node2D"]
 
@@ -12,3 +13,6 @@
 speed = 500.0
 
 [node name="walls" parent="." instance=ExtResource("3_cn1dg")]
+
+[node name="Enemy" parent="." instance=ExtResource("4_mydxp")]
+position = Vector2(466, 355)
