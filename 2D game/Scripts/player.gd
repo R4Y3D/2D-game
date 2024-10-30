@@ -78,7 +78,7 @@ func shoot_bullet() -> void:
 	var bullet = bullet_scene.instantiate()  # Create a new bullet instance
 	
 	# Set bullet position to slightly below the player's position
-	bullet.position = position + Vector2(0, 10)  # Adjust the Y offset as needed
+	bullet.position = position + Vector2(0, -80)  # Adjust the Y offset as needed
 	bullet.direction = Vector2.UP  # Set the direction of the bullet to shoot upwards
 	get_tree().current_scene.add_child(bullet)  # Add bullet to the scene
 
@@ -115,6 +115,7 @@ func activate_invincibility() -> void:
 # Function to play explosion animation and remove player
 func play_explosion() -> void:
 	anim.visible = false
+	explosion_anim.visible = true
 	explosion_anim.play("explode")
 	await explosion_anim.animation_finished  # Change yield to await
 	queue_free()

@@ -4,12 +4,13 @@
 
 [sub_resource type="Curve2D" id="Curve2D_sydvm"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 3, 0, -55.0921, 25.4271, 55.0921, -25.4271, -60, -5, 50.8542, -127.136, -50.8542, 127.136, -355, 211, -63.5678, -46.6164, 63.5678, 46.6164, -263, 580, -36.0217, 0, 36.0217, 0, -73, 652, 0, 0, 0, 0, 8, 662)
+"points": PackedVector2Array(0, 0, 0, 0, 3, 0, 62.1679, -137.743, -62.1679, 137.743, -355, 211, -63.5678, -46.6164, 63.5678, 46.6164, -263, 580, -36.0217, 0, 36.0217, 0, -73, 652, 0, 0, 0, 0, 8, 662, 0, 0, 0, 0, 3, 0)
 }
 point_count = 6
 
 [sub_resource type="Animation" id="Animation_axadb"]
 length = 15.0
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -25,7 +26,8 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_jhrdw"]
 resource_name = "enemy_animation"
-length = 10.0
+length = 20.0
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -51,9 +53,9 @@ _data = {
 curve = SubResource("Curve2D_sydvm")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(-33.6121, 654.893)
+position = Vector2(3.47939, 63.4706)
 rotation = 0.00723407
-progress = 1127.65
+progress = 1714.97
 rotates = false
 
 [node name="Enemy" parent="Path2D/PathFollow2D" instance=ExtResource("1_g8ylc")]

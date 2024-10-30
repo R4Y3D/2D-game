@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://doym14lralqv7"]
+[gd_scene load_steps=6 format=3 uid="uid://doym14lralqv7"]
 
 [ext_resource type="PackedScene" uid="uid://35u4b6xv0kj3" path="res://Scenes/background/Background.tscn" id="1_cpy2o"]
+[ext_resource type="Script" path="res://Scenes/main.gd" id="1_drgm5"]
 [ext_resource type="PackedScene" uid="uid://b50jbwwdxkb52" path="res://Scenes/player/Player.tscn" id="1_losjw"]
 [ext_resource type="PackedScene" uid="uid://c4mgsquy3xfjc" path="res://Scenes/background/walls.tscn" id="3_cn1dg"]
 [ext_resource type="PackedScene" uid="uid://b5mda5q882tlm" path="res://Scenes/enemies/grey ships anim.tscn" id="4_ix7oa"]
 
 [node name="main" type="Node2D"]
+script = ExtResource("1_drgm5")
 
 [node name="Background" parent="." instance=ExtResource("1_cpy2o")]
 

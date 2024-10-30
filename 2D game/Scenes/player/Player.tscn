@@ -621,9 +621,8 @@ scale = Vector2(0.579483, 0.46468)
 texture = ExtResource("3_v4esw")
 
 [node name="Explosion" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(-0.00524902, -2.78943)
 scale = Vector2(0.239078, 0.199132)
 sprite_frames = SubResource("SpriteFrames_f4rvq")
 animation = &"explode"
-frame = 61
-frame_progress = 1.0
