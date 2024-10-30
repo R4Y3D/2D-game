@@ -18,3 +18,7 @@ speed = 500.0
 
 [node name="Enemyanim" parent="." instance=ExtResource("4_ix7oa")]
 position = Vector2(889, 131)
+
+[node name="DeathScreenTint" type="CanvasModulate" parent="."]
+visible = false
+color = Color(0.72, 0.3816, 0.3816, 1)

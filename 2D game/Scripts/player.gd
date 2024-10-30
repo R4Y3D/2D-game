@@ -24,52 +24,52 @@ func _process(_delta: float) -> void:
 func handle_movement() -> void:
 	var direction: Vector2 = Vector2.ZERO
 	var current_speed = speed
+	if lives > 0:
+		if Input.is_action_pressed("focus"):
+			current_speed /= 2
 
-	if Input.is_action_pressed("focus"):
-		current_speed /= 2
+		if Input.is_action_pressed("up"):
+			direction.y -= 1
+			if anim.animation != "thrustForward":
+				anim.play("thrustForward")
+		elif Input.is_action_pressed("down"):
+			direction.y += 1
+			if anim.animation != "thrustBackward":
+				anim.play("thrustBackward")
+		
+		if Input.is_action_pressed("left"):
+			direction.x -= 1
+			if anim.animation != "turnLeft":
+				anim.play("turnLeft")
+		elif Input.is_action_pressed("right"):
+			direction.x += 1
+			if anim.animation != "turnRight":
+				anim.play("turnRight")
 
-	if Input.is_action_pressed("up"):
-		direction.y -= 1
-		if anim.animation != "thrustForward":
-			anim.play("thrustForward")
-	elif Input.is_action_pressed("down"):
-		direction.y += 1
-		if anim.animation != "thrustBackward":
-			anim.play("thrustBackward")
-	
-	if Input.is_action_pressed("left"):
-		direction.x -= 1
-		if anim.animation != "turnLeft":
-			anim.play("turnLeft")
-	elif Input.is_action_pressed("right"):
-		direction.x += 1
-		if anim.animation != "turnRight":
-			anim.play("turnRight")
+		# Handle diagonal movement
+		if Input.is_action_pressed("up") and Input.is_action_pressed("left"):
+			direction.y -= 1
+			direction.x -= 1
+			if anim.animation != "thrustLeft":
+				anim.play("thrustLeft")
+		elif Input.is_action_pressed("up") and Input.is_action_pressed("right"):
+			direction.y -= 1
+			direction.x += 1
+			if anim.animation != "thrustRight":
+				anim.play("thrustRight")
 
-	# Handle diagonal movement
-	if Input.is_action_pressed("up") and Input.is_action_pressed("left"):
-		direction.y -= 1
-		direction.x -= 1
-		if anim.animation != "thrustLeft":
-			anim.play("thrustLeft")
-	elif Input.is_action_pressed("up") and Input.is_action_pressed("right"):
-		direction.y -= 1
-		direction.x += 1
-		if anim.animation != "thrustRight":
-			anim.play("thrustRight")
-
-	# Normalize direction to prevent faster diagonal movement
-	if direction.length() > 0:
-		direction = direction.normalized()
-		velocity = direction * current_speed
-		move_and_slide()
-	else:
-		if anim.animation != "idle":
-			anim.play("idle")
+		# Normalize direction to prevent faster diagonal movement
+		if direction.length() > 0:
+			direction = direction.normalized()
+			velocity = direction * current_speed
+			move_and_slide()
+		else:
+			if anim.animation != "idle":
+				anim.play("idle")
 
 # Function to handle shooting
 func handle_shooting() -> void:
-	if Input.is_action_pressed("shoot") and can_shoot:
+	if lives > 0 and Input.is_action_pressed("shoot") and can_shoot:
 		shoot_bullet()
 
 # Function to shoot bullets
@@ -110,7 +110,7 @@ func activate_invincibility() -> void:
 	await get_tree().create_timer(3.0).timeout  # Change yield to await
 	shield.visible = false
 	shield.modulate.a = 1.0
-	is_invincible = false
+	is_invincible = false 
 
 # Function to play explosion animation and remove player
 func play_explosion() -> void:
@@ -118,4 +118,8 @@ func play_explosion() -> void:
 	explosion_anim.visible = true
 	explosion_anim.play("explode")
 	await explosion_anim.animation_finished  # Change yield to await
-	queue_free()
+	
+func reset() -> void:
+	lives = max_lives
+	visible = true
+	anim.visible = true

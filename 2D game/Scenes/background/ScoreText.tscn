@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://0mk23bu07vuh"]
+
+[ext_resource type="Script" path="res://Scenes/background/ScoreText.gd" id="1_aagp4"]
+[ext_resource type="Script" path="res://Scenes/rich_text_label.gd" id="2_3ompg"]
+
+[node name="Score Text" type="Node2D"]
+script = ExtResource("1_aagp4")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_3ompg")

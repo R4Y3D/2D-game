@@ -53,7 +53,7 @@ _data = {
 curve = SubResource("Curve2D_sydvm")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(3.47939, 63.4706)
+position = Vector2(3.47936, 63.4672)
 rotation = 0.00723407
 progress = 1714.97
 rotates = false

@@ -17,6 +17,8 @@ func take_damage() -> void:
 	anim.visible = false
 	explosion_anim.visible = true
 	explosion_anim.play("explode")
+	#This is the most horrendous line I've code I've written in a while, but it is godot does not have "root.score" :/
+	get_parent().get_parent().get_parent().get_parent().score = get_parent().get_parent().get_parent().get_parent().score + 1
 	await explosion_anim.animation_finished  # Change yield to await
 	queue_free()
 	pass
