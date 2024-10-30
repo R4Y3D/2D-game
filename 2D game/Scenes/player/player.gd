@@ -4,6 +4,11 @@ extends CharacterBody2D
 @onready var bullet_scene = preload("res://Scenes/player/player bullet.tscn")  # Preload your player bullet scene
 @onready var shield = $Shield
 @onready var explosion_anim = $Explosion
+@onready var sfx_thrust: AudioStreamPlayer2D = $sfxThrust
+@onready var sfx_idle: AudioStreamPlayer2D = $sfxIdle
+@onready var sfx_shoot: AudioStreamPlayer2D = $sfxShoot
+@onready var sfx_stop_shoot: AudioStreamPlayer2D = $sfxStopShoot
+@onready var sfx_explosion: AudioStreamPlayer2D = $sfxExplosion
 
 @export var speed: float = 200.0
 @export var max_lives: int = 3
@@ -28,35 +33,52 @@ func handle_movement() -> void:
 		if Input.is_action_pressed("focus"):
 			current_speed /= 2
 
+		# Move Up
 		if Input.is_action_pressed("up"):
 			direction.y -= 1
 			if anim.animation != "thrustForward":
 				anim.play("thrustForward")
+			if not sfx_thrust.playing:
+				sfx_thrust.play()  # Play thrust sound if not already playing
+		# Move Down
 		elif Input.is_action_pressed("down"):
 			direction.y += 1
 			if anim.animation != "thrustBackward":
 				anim.play("thrustBackward")
-		
+
+		# Move Left
 		if Input.is_action_pressed("left"):
 			direction.x -= 1
-			if anim.animation != "turnLeft":
+			if Input.is_action_pressed("up"):
+				if anim.animation != "thrustLeft":
+					anim.play("thrustLeft")
+				if not sfx_thrust.playing:
+					sfx_thrust.play()
+			elif anim.animation != "turnLeft":
 				anim.play("turnLeft")
+
+		# Move Right
 		elif Input.is_action_pressed("right"):
 			direction.x += 1
-			if anim.animation != "turnRight":
+			if Input.is_action_pressed("up"):
+				if anim.animation != "thrustRight":
+					anim.play("thrustRight")
+				if not sfx_thrust.playing:
+					sfx_thrust.play()
+			elif anim.animation != "turnRight":
 				anim.play("turnRight")
 
-		# Handle diagonal movement
-		if Input.is_action_pressed("up") and Input.is_action_pressed("left"):
-			direction.y -= 1
-			direction.x -= 1
-			if anim.animation != "thrustLeft":
-				anim.play("thrustLeft")
-		elif Input.is_action_pressed("up") and Input.is_action_pressed("right"):
-			direction.y -= 1
-			direction.x += 1
-			if anim.animation != "thrustRight":
-				anim.play("thrustRight")
+		# Stop thrust sound if no "thrust" animation is playing
+		if not Input.is_action_pressed("up") and not Input.is_action_pressed("left") and not Input.is_action_pressed("right"):
+			if sfx_thrust.playing:
+				sfx_thrust.stop()
+
+		# Play sfx_idle if any movement key is pressed and the sound is not already playing
+		if direction != Vector2.ZERO and not sfx_idle.playing:
+			sfx_idle.play()
+		# Stop sfx_idle if no movement keys are pressed
+		elif direction == Vector2.ZERO and sfx_idle.playing:
+			sfx_idle.stop()
 
 		# Normalize direction to prevent faster diagonal movement
 		if direction.length() > 0:
@@ -71,6 +93,10 @@ func handle_movement() -> void:
 func handle_shooting() -> void:
 	if lives > 0 and Input.is_action_pressed("shoot") and can_shoot:
 		shoot_bullet()
+		if not sfx_shoot.playing:
+			sfx_shoot.play()
+	elif not Input.is_action_pressed("shoot") and sfx_shoot.playing:
+		sfx_shoot.stop()
 
 # Function to shoot bullets
 func shoot_bullet() -> void:
@@ -91,6 +117,10 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_released("up") or event.is_action_released("down") or event.is_action_released("left") or event.is_action_released("right"):
 		if anim.animation != "stop":
 			anim.play("stop")
+	
+	# Play stop shoot sound when the shoot button is released
+	if event.is_action_released("shoot"):
+		sfx_stop_shoot.play()
 
 # Function to handle player getting hit
 func take_damage():
@@ -117,8 +147,10 @@ func play_explosion() -> void:
 	anim.visible = false
 	explosion_anim.visible = true
 	explosion_anim.play("explode")
+	sfx_explosion.play()  # Play explosion sound
 	await explosion_anim.animation_finished  # Change yield to await
-	
+	queue_free()
+
 func reset() -> void:
 	lives = max_lives
 	visible = true

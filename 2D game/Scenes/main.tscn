@@ -12,6 +12,7 @@ script = ExtResource("1_drgm5")
 [node name="Background" parent="." instance=ExtResource("1_cpy2o")]
 
 [node name="player" parent="." instance=ExtResource("1_losjw")]
+position = Vector2(457, 1114)
 speed = 500.0
 
 [node name="walls" parent="." instance=ExtResource("3_cn1dg")]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://db1xmjmpa2q84" path="res://Assets/background/background.png" id="1_o4f4k"]
 [ext_resource type="Texture2D" uid="uid://dlpvkg4dk5sm6" path="res://Assets/background/clouds.png" id="2_ixh5q"]
-[ext_resource type="Script" path="res://Scripts/background.gd" id="3_2bh2v"]
+[ext_resource type="Script" path="res://Scenes/background/background.gd" id="3_2bh2v"]
 
 [node name="Background" type="Node2D"]
 scale = Vector2(1.6, 1.6)

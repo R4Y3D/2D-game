@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var speed: float = 800.0  # Speed of the bullet
+@export var speed: float = 999.0  # Speed of the bullet
 
 var direction: Vector2
 

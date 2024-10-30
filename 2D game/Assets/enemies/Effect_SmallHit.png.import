@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cp1us43pldfuv"
-path="res://.godot/imported/test_bullet_animation_sheet.png-6000053807c455616835ba92e5c1b011.ctex"
+uid="uid://cxu8dlo6q61wd"
+path="res://.godot/imported/Effect_SmallHit.png-9102f17b9d333bec05e9be683e1e35a4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/PerfBullets/test_bullet_animation_sheet.png"
-dest_files=["res://.godot/imported/test_bullet_animation_sheet.png-6000053807c455616835ba92e5c1b011.ctex"]
+source_file="res://Assets/enemies/Effect_SmallHit.png"
+dest_files=["res://.godot/imported/Effect_SmallHit.png-9102f17b9d333bec05e9be683e1e35a4.ctex"]
 
 [params]
 
