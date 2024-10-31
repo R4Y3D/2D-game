@@ -9,6 +9,7 @@ extends CharacterBody2D
 @onready var sfx_shoot: AudioStreamPlayer2D = $sfxShoot
 @onready var sfx_stop_shoot: AudioStreamPlayer2D = $sfxStopShoot
 @onready var sfx_explosion: AudioStreamPlayer2D = $sfxExplosion
+@onready var sfx_shield: AudioStreamPlayer2D = $sfxShield
 
 @export var speed: float = 200.0
 @export var max_lives: int = 3
@@ -137,6 +138,7 @@ func activate_invincibility() -> void:
 	is_invincible = true
 	shield.visible = true
 	shield.modulate.a = 0.5
+	sfx_shield.play()
 	await get_tree().create_timer(3.0).timeout  # Change yield to await
 	shield.visible = false
 	shield.modulate.a = 1.0

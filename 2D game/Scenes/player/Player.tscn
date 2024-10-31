@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://b50jbwwdxkb52"]
+[gd_scene load_steps=81 format=3 uid="uid://b50jbwwdxkb52"]
 
 [ext_resource type="Script" path="res://Scenes/player/player.gd" id="1_08n36"]
 [ext_resource type="Texture2D" uid="uid://bmk1x3uu43gxf" path="res://Assets/player/player.png" id="2_m54qx"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://men8il8gj5bv" path="res://Scenes/player/sfxShoot.wav" id="7_pxded"]
 [ext_resource type="AudioStream" uid="uid://d2tjbohd2uvvr" path="res://Scenes/player/sfxExplosion.wav" id="8_t2yyb"]
 [ext_resource type="AudioStream" uid="uid://brb2wijkgwc3t" path="res://Scenes/player/sfxStopShoot.wav" id="9_4sqq7"]
+[ext_resource type="AudioStream" uid="uid://dk4kcslhqhlwp" path="res://Scenes/player/sfxShield.wav" id="10_g6tl0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4elll"]
 atlas = ExtResource("2_m54qx")
@@ -370,46 +371,6 @@ region = Rect2(3102, 2585, 517, 517)
 atlas = ExtResource("4_l3imt")
 region = Rect2(3619, 2585, 517, 517)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4nag1"]
-atlas = ExtResource("4_l3imt")
-region = Rect2(4136, 2585, 517, 517)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fubvk"]
-atlas = ExtResource("4_l3imt")
-region = Rect2(0, 3102, 517, 517)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cke6w"]
-atlas = ExtResource("4_l3imt")
-region = Rect2(517, 3102, 517, 517)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4wxt3"]
-atlas = ExtResource("4_l3imt")
-region = Rect2(1034, 3102, 517, 517)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h0x3x"]
-atlas = ExtResource("4_l3imt")
-region = Rect2(1551, 3102, 517, 517)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5e6ya"]
-atlas = ExtResource("4_l3imt")
-region = Rect2(2068, 3102, 517, 517)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1euhs"]
-atlas = ExtResource("4_l3imt")
-region = Rect2(2585, 3102, 517, 517)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_efjs4"]
-atlas = ExtResource("4_l3imt")
-region = Rect2(3102, 3102, 517, 517)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hvsu4"]
-atlas = ExtResource("4_l3imt")
-region = Rect2(3619, 3102, 517, 517)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mth1v"]
-atlas = ExtResource("4_l3imt")
-region = Rect2(4136, 3102, 517, 517)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_f4rvq"]
 animations = [{
 "frames": [{
@@ -568,36 +529,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_l404o")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4nag1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fubvk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cke6w")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4wxt3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h0x3x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5e6ya")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1euhs")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_efjs4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hvsu4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mth1v")
 }],
 "loop": false,
 "name": &"explode",
@@ -634,19 +565,23 @@ animation = &"explode"
 
 [node name="sfxThrust" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_vkqyy")
-volume_db = -5.0
+volume_db = 1.0
 
 [node name="sfxIdle" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_bqul1")
-volume_db = 5.0
+volume_db = 24.0
 
 [node name="sfxShoot" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_pxded")
-volume_db = -10.0
+volume_db = -9.0
 
 [node name="sfxExplosion" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_t2yyb")
 
 [node name="sfxStopShoot" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_4sqq7")
-volume_db = -10.0
+volume_db = 1.0
+
+[node name="sfxShield" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_g6tl0")
+volume_db = 1.0

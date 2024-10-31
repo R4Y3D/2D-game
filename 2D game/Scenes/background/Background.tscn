@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://35u4b6xv0kj3"]
+[gd_scene load_steps=5 format=3 uid="uid://35u4b6xv0kj3"]
 
 [ext_resource type="Texture2D" uid="uid://db1xmjmpa2q84" path="res://Assets/background/background.png" id="1_o4f4k"]
 [ext_resource type="Texture2D" uid="uid://dlpvkg4dk5sm6" path="res://Assets/background/clouds.png" id="2_ixh5q"]
 [ext_resource type="Script" path="res://Scenes/background/background.gd" id="3_2bh2v"]
+[ext_resource type="AudioStream" uid="uid://bwq6p6bxydxnc" path="res://Scenes/background/bgMusic.ogg" id="4_mxx7k"]
 
 [node name="Background" type="Node2D"]
 scale = Vector2(1.6, 1.6)
@@ -27,3 +28,8 @@ position = Vector2(299, -2507)
 scale = Vector2(1.87928, 1.87928)
 texture = ExtResource("1_o4f4k")
 script = ExtResource("3_2bh2v")
+
+[node name="bgMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_mxx7k")
+volume_db = -10.0
+autoplay = true

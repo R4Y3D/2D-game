@@ -3,7 +3,7 @@ extends Node2D
 @onready var score = 0;
 @onready var player_alive = true;
 
-@onready var enemy_scene = preload("res://Scenes/enemies/grey ships anim.tscn")  # Preload your player bullet scene
+@onready var enemy_scene = preload("res://Scenes/enemies/grey ships/grey ships anim.tscn")  # Preload your player bullet scene
 @onready var score_text_scene = preload("res://Scenes/background/ScoreText.tscn")
 
 var score_text: Node2D;
@@ -18,13 +18,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	print(score)
 	if player_alive == true:
-		# Check if there are no enemies left
-		if get_tree().get_nodes_in_group("Enemies").size() == 0:
-			var enemies = enemy_scene.instantiate()  # Spawn more enemies
-			enemies.position = Vector2(899, 131)
-			get_tree().current_scene.add_child(enemies)
-		
-		
 		if $player.lives == 0:
 			if score_text == null:
 				score_text = score_text_scene.instantiate()

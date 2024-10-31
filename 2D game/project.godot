@@ -29,10 +29,6 @@ window/handheld/orientation=1
 
 enabled=PackedStringArray("res://addons/BulletUpHell/plugin.cfg")
 
-[global_group]
-
-enemies="All enemies"
-
 [input]
 
 up={
