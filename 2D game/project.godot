@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.3", "GL Compatibility")
 [autoload]
 
 Spawning="*res://addons/BulletUpHell/Spawning.tscn"
+MainScene="*res://Scenes/main_scene.gd"
 
 [display]
 

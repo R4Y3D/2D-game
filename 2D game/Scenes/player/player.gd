@@ -132,6 +132,7 @@ func take_damage():
 		activate_invincibility()
 	else:
 		play_explosion()
+		get_node("../GameOver").game_over()
 
 # Function to activate invincibility frames and shield
 func activate_invincibility() -> void:
@@ -146,6 +147,7 @@ func activate_invincibility() -> void:
 
 # Function to play explosion animation and remove player
 func play_explosion() -> void:
+	reset()
 	anim.visible = false
 	explosion_anim.visible = true
 	explosion_anim.play("explode")
@@ -157,3 +159,4 @@ func reset() -> void:
 	lives = max_lives
 	visible = true
 	anim.visible = true
+	MainScene.score = 0

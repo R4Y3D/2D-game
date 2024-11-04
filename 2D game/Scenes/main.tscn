@@ -1,14 +1,13 @@
 [gd_scene load_steps=7 format=3 uid="uid://doym14lralqv7"]
 
 [ext_resource type="PackedScene" uid="uid://35u4b6xv0kj3" path="res://Scenes/background/Background.tscn" id="1_cpy2o"]
-[ext_resource type="Script" path="res://Scenes/main.gd" id="1_drgm5"]
 [ext_resource type="PackedScene" uid="uid://b50jbwwdxkb52" path="res://Scenes/player/Player.tscn" id="1_losjw"]
 [ext_resource type="PackedScene" uid="uid://c4mgsquy3xfjc" path="res://Scenes/background/walls.tscn" id="3_cn1dg"]
 [ext_resource type="PackedScene" uid="uid://b5mda5q882tlm" path="res://Scenes/enemies/grey ships/grey ships anim.tscn" id="4_ix7oa"]
+[ext_resource type="PackedScene" uid="uid://bnypod7emwkeu" path="res://Scenes/gameOver.tscn" id="6_k7ka5"]
 [ext_resource type="PackedScene" uid="uid://dl4k60uuse8tj" path="res://Scenes/enemies/red ship/red ship anim.tscn" id="6_r40wi"]
 
 [node name="main" type="Node2D"]
-script = ExtResource("1_drgm5")
 
 [node name="Background" parent="." instance=ExtResource("1_cpy2o")]
 
@@ -21,37 +20,42 @@ speed = 500.0
 [node name="Enemyanim" parent="." instance=ExtResource("4_ix7oa")]
 position = Vector2(920, 294)
 
-[node name="Enemyanim2" parent="." instance=ExtResource("4_ix7oa")]
-position = Vector2(920, 217)
+[node name="Enemyanim2" parent="Enemyanim" instance=ExtResource("4_ix7oa")]
+position = Vector2(0, -77)
 
-[node name="Enemyanim3" parent="." instance=ExtResource("4_ix7oa")]
-position = Vector2(920, 147)
+[node name="Enemyanim3" parent="Enemyanim" instance=ExtResource("4_ix7oa")]
+position = Vector2(0, -147)
 
-[node name="Enemyanim4" parent="." instance=ExtResource("4_ix7oa")]
-position = Vector2(920, 83)
+[node name="Enemyanim4" parent="Enemyanim" instance=ExtResource("4_ix7oa")]
+position = Vector2(0, -211)
 
-[node name="Enemyanim5" parent="." instance=ExtResource("4_ix7oa")]
-position = Vector2(41, 294)
-scale = Vector2(-1, 1)
+[node name="Enemyanim5" parent="Enemyanim" instance=ExtResource("4_ix7oa")]
+position = Vector2(-879, 0)
+rotation = 3.14159
+scale = Vector2(1, -1)
 
-[node name="Enemyanim6" parent="." instance=ExtResource("4_ix7oa")]
-position = Vector2(41, 217)
-scale = Vector2(-1, 1)
+[node name="Enemyanim6" parent="Enemyanim" instance=ExtResource("4_ix7oa")]
+position = Vector2(-879, -77)
+rotation = 3.14159
+scale = Vector2(1, -1)
 
-[node name="Enemyanim7" parent="." instance=ExtResource("4_ix7oa")]
-position = Vector2(41, 147)
-scale = Vector2(-1, 1)
+[node name="Enemyanim7" parent="Enemyanim" instance=ExtResource("4_ix7oa")]
+position = Vector2(-879, -147)
+rotation = 3.14159
+scale = Vector2(1, -1)
 
-[node name="Enemyanim8" parent="." instance=ExtResource("4_ix7oa")]
-position = Vector2(41, 83)
-scale = Vector2(-1, 1)
-
-[node name="DeathScreenTint" type="CanvasModulate" parent="."]
-visible = false
-color = Color(0.72, 0.3816, 0.3816, 1)
+[node name="Enemyanim8" parent="Enemyanim" instance=ExtResource("4_ix7oa")]
+position = Vector2(-879, -211)
+rotation = 3.14159
+scale = Vector2(1, -1)
 
 [node name="RedShipAnim" parent="." instance=ExtResource("6_r40wi")]
 position = Vector2(961, 0)
 
-[node name="RedShipAnim2" parent="." instance=ExtResource("6_r40wi")]
-scale = Vector2(-1, 1)
+[node name="RedShipAnim2" parent="RedShipAnim" instance=ExtResource("6_r40wi")]
+position = Vector2(-961, 0)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="GameOver" parent="." instance=ExtResource("6_k7ka5")]
+visible = false

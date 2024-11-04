@@ -1,7 +1,7 @@
-[gd_scene load_steps=158 format=3 uid="uid://ds45grul2fdyo"]
+[gd_scene load_steps=149 format=3 uid="uid://ds45grul2fdyo"]
 
 [ext_resource type="Texture2D" uid="uid://ba0g55hhcgnce" path="res://Assets/enemies/grey ship.png" id="1_bu8ks"]
-[ext_resource type="Script" path="res://Scenes/enemies/red ship/red_ship.gd" id="1_wem8s"]
+[ext_resource type="Script" path="res://Scenes/enemies/grey ships/grey_ship.gd" id="1_lplnx"]
 [ext_resource type="Script" path="res://addons/BulletUpHell/Nodes/BuHSpawnPoint.gd" id="2_jphbc"]
 [ext_resource type="Script" path="res://addons/BulletUpHell/Nodes/BuHPattern.gd" id="3_6mnol"]
 [ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/PatternOne.gd" id="5_74hwd"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://jjvrpxg3d6n0" path="res://Assets/player/Explosion.png" id="9_76n4s"]
 [ext_resource type="Texture2D" uid="uid://cxu8dlo6q61wd" path="res://Assets/enemies/Effect_SmallHit.png" id="10_06r1w"]
 [ext_resource type="Texture2D" uid="uid://t1rc5k24nj81" path="res://Assets/enemies/boom.png" id="10_ooksi"]
+[ext_resource type="AudioStream" uid="uid://cbq8ak2cjtenq" path="res://Scenes/enemies/enemyExplosion.wav" id="12_kosii"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p2iht"]
 atlas = ExtResource("1_bu8ks")
@@ -48,14 +49,14 @@ resource_name = "PatternOne"
 script = ExtResource("5_74hwd")
 bullet = "grey"
 nbr = 3
-iterations = 13
+iterations = 6
 pattern_angle = 0.0
 pattern_angle_target = NodePath("")
 pattern_angle_mouse = false
 forced_angle = 0.0
 forced_target = NodePath("")
 forced_lookat_mouse = false
-forced_pattern_lookat = true
+forced_pattern_lookat = false
 cooldown_stasis = false
 cooldown_spawn = 1.0
 cooldown_shoot = 0.0
@@ -363,46 +364,6 @@ region = Rect2(3102, 2585, 517, 517)
 [sub_resource type="AtlasTexture" id="AtlasTexture_l404o"]
 atlas = ExtResource("9_76n4s")
 region = Rect2(3619, 2585, 517, 517)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4nag1"]
-atlas = ExtResource("9_76n4s")
-region = Rect2(4136, 2585, 517, 517)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fubvk"]
-atlas = ExtResource("9_76n4s")
-region = Rect2(0, 3102, 517, 517)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cke6w"]
-atlas = ExtResource("9_76n4s")
-region = Rect2(517, 3102, 517, 517)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4wxt3"]
-atlas = ExtResource("9_76n4s")
-region = Rect2(1034, 3102, 517, 517)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h0x3x"]
-atlas = ExtResource("9_76n4s")
-region = Rect2(1551, 3102, 517, 517)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5e6ya"]
-atlas = ExtResource("9_76n4s")
-region = Rect2(2068, 3102, 517, 517)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1euhs"]
-atlas = ExtResource("9_76n4s")
-region = Rect2(2585, 3102, 517, 517)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_efjs4"]
-atlas = ExtResource("9_76n4s")
-region = Rect2(3102, 3102, 517, 517)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hvsu4"]
-atlas = ExtResource("9_76n4s")
-region = Rect2(3619, 3102, 517, 517)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mth1v"]
-atlas = ExtResource("9_76n4s")
-region = Rect2(4136, 3102, 517, 517)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8v0n1"]
 atlas = ExtResource("10_ooksi")
@@ -846,40 +807,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_l404o")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4nag1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fubvk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cke6w")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4wxt3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h0x3x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5e6ya")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1euhs")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_efjs4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hvsu4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mth1v")
 }],
 "loop": false,
 "name": &"explode",
-"speed": 60.0
+"speed": 120.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1107,7 +1038,8 @@ animations = [{
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemies"]]
 scale = Vector2(0.56, 0.56)
-script = ExtResource("1_wem8s")
+script = ExtResource("1_lplnx")
+health = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3.16, 3.16)
@@ -1121,8 +1053,8 @@ auto_pattern_id = "grey"
 shared_area_name = "0"
 rotating_speed = 0.0
 pool_amount = 50
-auto_start_on_cam = true
-auto_start_after_time = 0.0
+auto_start_on_cam = false
+auto_start_after_time = 4.5
 auto_start_at_distance = 5.0
 auto_distance_from = NodePath("")
 trigger_container = NodePath("")
@@ -1144,9 +1076,12 @@ position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_u83di")
 
 [node name="Explosion" type="AnimatedSprite2D" parent="."]
-position = Vector2(33.9286, 0)
-scale = Vector2(0.517235, 0.431029)
+position = Vector2(-9.53674e-07, -5.35714)
+scale = Vector2(0.476219, 0.431029)
 sprite_frames = SubResource("SpriteFrames_vicu8")
-animation = &"smallhit"
-frame = 62
+animation = &"explode"
+frame = 51
 frame_progress = 1.0
+
+[node name="sfxExplosion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_kosii")

@@ -1,13 +1,54 @@
-[gd_scene load_steps=3 format=3 uid="uid://0mk23bu07vuh"]
+[gd_scene load_steps=3 format=3 uid="uid://do4w7b81gu86a"]
 
-[ext_resource type="Script" path="res://Scenes/background/ScoreText.gd" id="1_aagp4"]
-[ext_resource type="Script" path="res://Scenes/rich_text_label.gd" id="2_3ompg"]
+[sub_resource type="GDScript" id="GDScript_b10ie"]
+script/source = "extends Node2D
+
+@onready var score = 0;
+
+func _draw():
+	var default_font : Font = ThemeDB.fallback_font;
+	
+	var white : Color = Color.WHITE
+	var godot_blue : Color = Color(\"478cbf\")
+	var grey : Color = Color(\"414042\")
+	DisplayServer.window_get_size()
+
+	draw_string(default_font, Vector2(100, 100), \"Your Score: \" + str(score),
+				HORIZONTAL_ALIGNMENT_CENTER, 500, 55)
+	
+	draw_string(default_font, Vector2(100, 500), \"Press Space to Restart\", 
+				HORIZONTAL_ALIGNMENT_CENTER, 1000, 55)
+	
+
+	
+"
+
+[sub_resource type="GDScript" id="GDScript_weqmm"]
+script/source = "extends RichTextLabel
+
+var default_font : Font = ThemeDB.fallback_font;
+
+func _draw():
+	var white : Color = Color.WHITE
+	var godot_blue : Color = Color(\"478cbf\")
+	var grey : Color = Color(\"414042\")
+
+	draw_circle(Vector2(42.479, 65.4825), 9.3905, white)
+	draw_circle(Vector2(85.524, 65.4825), 9.3905, white)
+	draw_circle(Vector2(43.423, 65.92), 6.246, grey)
+	draw_circle(Vector2(84.626, 66.008), 6.246, grey)
+	draw_line(Vector2(64.273, 60.564), Vector2(64.273, 74.349), white, 5.8)
+
+	# Draw GODOT text below the logo with the default font, size 22.
+	draw_string(default_font, Vector2(20, 130), \"GODOT\",
+				HORIZONTAL_ALIGNMENT_CENTER, 90, 22)
+"
 
 [node name="Score Text" type="Node2D"]
-script = ExtResource("1_aagp4")
+script = SubResource("GDScript_b10ie")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 visible = false
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("2_3ompg")
+script = SubResource("GDScript_weqmm")

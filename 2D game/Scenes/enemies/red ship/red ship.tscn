@@ -1,4 +1,4 @@
-[gd_scene load_steps=162 format=3 uid="uid://o0dd4n8mcsr8"]
+[gd_scene load_steps=149 format=3 uid="uid://o0dd4n8mcsr8"]
 
 [ext_resource type="Script" path="res://Scenes/enemies/red ship/red_ship.gd" id="1_i5mnp"]
 [ext_resource type="Texture2D" uid="uid://bo5e76lqhxy3g" path="res://Assets/enemies/red ship.png" id="2_8gfj5"]
@@ -11,9 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://jjvrpxg3d6n0" path="res://Assets/player/Explosion.png" id="9_4twk5"]
 [ext_resource type="Texture2D" uid="uid://t1rc5k24nj81" path="res://Assets/enemies/boom.png" id="10_rvpa7"]
 [ext_resource type="Texture2D" uid="uid://cxu8dlo6q61wd" path="res://Assets/enemies/Effect_SmallHit.png" id="11_tksi0"]
-[ext_resource type="Script" path="res://addons/BulletUpHell/Nodes/BuHTriggerContainer.gd" id="12_pjn1n"]
-[ext_resource type="Script" path="res://addons/BulletUpHell/Triggers/TriggerTime.gd" id="13_dqqkf"]
-[ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/Pattern.gd" id="14_ukwq7"]
+[ext_resource type="AudioStream" uid="uid://cbq8ak2cjtenq" path="res://Scenes/enemies/enemyExplosion.wav" id="12_rp3x5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d6gk6"]
 atlas = ExtResource("2_8gfj5")
@@ -49,15 +47,15 @@ animations = [{
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_w4l6w"]
 resource_name = "PatternCircle"
 script = ExtResource("5_limpv")
-radius = 100
-angle_total = 3.97022
-angle_decal = 0.0
+radius = 3
+angle_total = 3.14159
+angle_decal = 5.67232
 symmetric = true
 center = 0
 symmetry_type = 0
 bullet = "red"
-nbr = 13
-iterations = 20
+nbr = 8
+iterations = 3
 pattern_angle = 0.0
 pattern_angle_target = NodePath("")
 pattern_angle_mouse = false
@@ -372,46 +370,6 @@ region = Rect2(3102, 2585, 517, 517)
 [sub_resource type="AtlasTexture" id="AtlasTexture_l404o"]
 atlas = ExtResource("9_4twk5")
 region = Rect2(3619, 2585, 517, 517)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4nag1"]
-atlas = ExtResource("9_4twk5")
-region = Rect2(4136, 2585, 517, 517)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fubvk"]
-atlas = ExtResource("9_4twk5")
-region = Rect2(0, 3102, 517, 517)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cke6w"]
-atlas = ExtResource("9_4twk5")
-region = Rect2(517, 3102, 517, 517)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4wxt3"]
-atlas = ExtResource("9_4twk5")
-region = Rect2(1034, 3102, 517, 517)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h0x3x"]
-atlas = ExtResource("9_4twk5")
-region = Rect2(1551, 3102, 517, 517)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5e6ya"]
-atlas = ExtResource("9_4twk5")
-region = Rect2(2068, 3102, 517, 517)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1euhs"]
-atlas = ExtResource("9_4twk5")
-region = Rect2(2585, 3102, 517, 517)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_efjs4"]
-atlas = ExtResource("9_4twk5")
-region = Rect2(3102, 3102, 517, 517)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hvsu4"]
-atlas = ExtResource("9_4twk5")
-region = Rect2(3619, 3102, 517, 517)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mth1v"]
-atlas = ExtResource("9_4twk5")
-region = Rect2(4136, 3102, 517, 517)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8v0n1"]
 atlas = ExtResource("10_rvpa7")
@@ -855,40 +813,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_l404o")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4nag1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fubvk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cke6w")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4wxt3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h0x3x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5e6ya")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1euhs")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_efjs4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hvsu4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mth1v")
 }],
 "loop": false,
 "name": &"explode",
-"speed": 60.0
+"speed": 120.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1114,11 +1042,6 @@ animations = [{
 "speed": 60.0
 }]
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_8uq68"]
-resource_name = "red"
-script = ExtResource("13_dqqkf")
-time = 11.0
-
 [node name="Enemy" type="CharacterBody2D" groups=["enemies"]]
 scale = Vector2(0.56, 0.56)
 script = ExtResource("1_i5mnp")
@@ -1136,8 +1059,8 @@ auto_pattern_id = "red"
 shared_area_name = "0"
 rotating_speed = 0.0
 pool_amount = 50
-auto_start_on_cam = true
-auto_start_after_time = 0.0
+auto_start_on_cam = false
+auto_start_after_time = 12.5
 auto_start_at_distance = 5.0
 auto_distance_from = NodePath("")
 trigger_container = NodePath("")
@@ -1159,17 +1082,12 @@ position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_u83di")
 
 [node name="Explosion" type="AnimatedSprite2D" parent="."]
-position = Vector2(33.9286, 0)
-scale = Vector2(0.517235, 0.431029)
+position = Vector2(-1.90735e-06, 0)
+scale = Vector2(0.462403, 0.431029)
 sprite_frames = SubResource("SpriteFrames_vicu8")
-animation = &"smallhit"
-frame = 62
+animation = &"explode"
+frame = 51
 frame_progress = 1.0
 
-[node name="TriggerContainer" type="Node" parent="."]
-script = ExtResource("12_pjn1n")
-id = "red"
-advanced_controls = "0=0
->0"
-triggers = Array[RichTextEffect]([SubResource("RichTextEffect_8uq68")])
-patterns = Array[ExtResource("14_ukwq7")]([SubResource("NavigationPolygon_w4l6w")])
+[node name="sfxExplosion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_rp3x5")

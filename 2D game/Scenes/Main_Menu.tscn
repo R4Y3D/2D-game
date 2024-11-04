@@ -1,8 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://bcdv2b06xfhu5"]
+[gd_scene load_steps=19 format=3 uid="uid://bcdv2b06xfhu5"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_ns0gh"]
 [ext_resource type="Texture2D" uid="uid://bvt5wkgaqph3s" path="res://Screenshot 2024-10-31 at 8.31.58 PM.png" id="2_716if"]
 [ext_resource type="FontFile" uid="uid://dhgbcsi412c1i" path="res://Popcat.otf" id="3_we6c3"]
+[ext_resource type="Texture2D" uid="uid://c6dweffe6103a" path="res://Assets/HUD/ButtonSprite.png" id="4_4a0ji"]
+[ext_resource type="Texture2D" uid="uid://1axk0ol8go1l" path="res://Assets/HUD/Controls/W.png" id="4_xmern"]
+[ext_resource type="Texture2D" uid="uid://giry23mh8c1s" path="res://Assets/HUD/Controls/A.png" id="5_wcn3w"]
+[ext_resource type="Texture2D" uid="uid://dm3gapx8ugbgf" path="res://Assets/HUD/Controls/S.png" id="6_pqw1c"]
+[ext_resource type="Texture2D" uid="uid://duhw6m31bcqua" path="res://Assets/HUD/Controls/D.png" id="7_rv7kg"]
+[ext_resource type="Texture2D" uid="uid://bpcu6cf4n600g" path="res://Assets/HUD/Controls/ARROWUP.png" id="8_bgo2u"]
+[ext_resource type="Texture2D" uid="uid://cas4hspecxhkf" path="res://Assets/HUD/Controls/ARROWDOWN.png" id="9_t1h3f"]
+[ext_resource type="Texture2D" uid="uid://baxoixn3e2xiu" path="res://Assets/HUD/Controls/ARROWLEFT.png" id="10_2lmbb"]
+[ext_resource type="Texture2D" uid="uid://bdkop5pslus05" path="res://Assets/HUD/Controls/ARROWRIGHT.png" id="11_n6fjc"]
+[ext_resource type="Texture2D" uid="uid://c011v0mmje4hq" path="res://Assets/HUD/Controls/SPACE.png" id="12_udf0o"]
+[ext_resource type="Texture2D" uid="uid://cxyyjxlbfj0ih" path="res://Assets/HUD/Controls/X.png" id="13_v8tmn"]
+[ext_resource type="Texture2D" uid="uid://bxmsqh8y5vmb2" path="res://Assets/HUD/Controls/SHIFT.png" id="14_wl42k"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8tbas"]
 texture = ExtResource("2_716if")
@@ -15,6 +27,9 @@ corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 shadow_size = 5
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mi8yd"]
+texture = ExtResource("4_4a0ji")
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -57,15 +72,15 @@ vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 0.451
 anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_bottom = 0.451
 offset_left = -200.0
-offset_top = -94.0
+offset_top = -31.28
 offset_right = 200.0
-offset_bottom = 94.0
+offset_bottom = 30.72
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -77,20 +92,207 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_ld53e")
 text = "START GAME"
 
-[node name="Button2" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_ld53e")
-text = "GAME RULES"
+[node name="controls panel" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0.909804)
+self_modulate = Color(0.959056, 0.975483, 0.998564, 0.898039)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.292
+anchor_top = 0.491
+anchor_right = 0.711
+anchor_bottom = 0.869
+offset_left = -0.320038
+offset_top = 102.52
+offset_right = 0.440002
+offset_bottom = 101.68
+theme_override_styles/panel = SubResource("StyleBoxTexture_mi8yd")
 
-[node name="Button3" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+[node name="controls" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.0
+offset_top = 98.0
+offset_right = 117.0
+offset_bottom = 158.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_ld53e")
-text = "EXIT"
+text = "Controls"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="movement" type="Label" parent="."]
+layout_mode = 0
+offset_left = 436.0
+offset_top = 819.0
+offset_right = 592.0
+offset_bottom = 861.0
+scale = Vector2(0.529771, 0.529771)
+theme_override_font_sizes/font_size = 30
+text = "Movement"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Shoot" type="Label" parent="."]
+layout_mode = 0
+offset_left = 445.0
+offset_top = 960.0
+offset_right = 575.0
+offset_bottom = 1002.0
+scale = Vector2(0.529771, 0.529771)
+theme_override_font_sizes/font_size = 30
+text = "Shoot"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Focus" type="Label" parent="."]
+layout_mode = 0
+offset_left = 445.0
+offset_top = 1085.0
+offset_right = 575.0
+offset_bottom = 1127.0
+scale = Vector2(0.529771, 0.529771)
+theme_override_font_sizes/font_size = 30
+text = "Focus"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WASD" type="Node2D" parent="."]
+position = Vector2(384, 883)
+scale = Vector2(2.05687, 2.15689)
+
+[node name="W2" type="Sprite2D" parent="WASD"]
+modulate = Color(0, 0, 0, 0.796078)
+self_modulate = Color(0, 0, 0, 0.8)
+position = Vector2(1.34126, -6.89523)
+scale = Vector2(1, 1)
+texture = ExtResource("4_xmern")
+
+[node name="A2" type="Sprite2D" parent="WASD"]
+modulate = Color(0, 0, 0, 0.796078)
+self_modulate = Color(0, 0, 0, 0.8)
+position = Vector2(-15.6587, 9.1048)
+scale = Vector2(1, 1)
+texture = ExtResource("5_wcn3w")
+
+[node name="S2" type="Sprite2D" parent="WASD"]
+modulate = Color(0, 0, 0, 0.796078)
+self_modulate = Color(0, 0, 0, 0.8)
+position = Vector2(1.34126, 9.1048)
+scale = Vector2(1, 1)
+texture = ExtResource("6_pqw1c")
+
+[node name="D2" type="Sprite2D" parent="WASD"]
+modulate = Color(0, 0, 0, 0.796078)
+self_modulate = Color(0, 0, 0, 0.8)
+position = Vector2(18.3413, 9.1048)
+scale = Vector2(1, 1)
+texture = ExtResource("7_rv7kg")
+
+[node name="W" type="Sprite2D" parent="WASD"]
+position = Vector2(-0.117264, -8.28613)
+texture = ExtResource("4_xmern")
+
+[node name="A" type="Sprite2D" parent="WASD"]
+position = Vector2(-17.1173, 7.71387)
+texture = ExtResource("5_wcn3w")
+
+[node name="S" type="Sprite2D" parent="WASD"]
+position = Vector2(-0.117264, 7.71387)
+texture = ExtResource("6_pqw1c")
+
+[node name="D" type="Sprite2D" parent="WASD"]
+position = Vector2(16.8827, 7.71387)
+texture = ExtResource("7_rv7kg")
+
+[node name="arrow keys" type="Node2D" parent="."]
+position = Vector2(576, 883)
+scale = Vector2(2.08, 2.08)
+
+[node name="Arrowup2" type="Sprite2D" parent="arrow keys"]
+modulate = Color(0, 0, 0, 0.784314)
+self_modulate = Color(0, 0, 0, 0.698039)
+position = Vector2(2.42307, -6.07693)
+texture = ExtResource("8_bgo2u")
+
+[node name="Arrowdown2" type="Sprite2D" parent="arrow keys"]
+modulate = Color(0, 0, 0, 0.784314)
+self_modulate = Color(0, 0, 0, 0.698039)
+position = Vector2(2.42307, 9.92303)
+texture = ExtResource("9_t1h3f")
+
+[node name="Arrowleft2" type="Sprite2D" parent="arrow keys"]
+modulate = Color(0, 0, 0, 0.784314)
+self_modulate = Color(0, 0, 0, 0.698039)
+position = Vector2(-14.5769, 9.92303)
+texture = ExtResource("10_2lmbb")
+
+[node name="Arrowright2" type="Sprite2D" parent="arrow keys"]
+modulate = Color(0, 0, 0, 0.784314)
+self_modulate = Color(0, 0, 0, 0.698039)
+position = Vector2(19.4231, 9.92303)
+texture = ExtResource("11_n6fjc")
+
+[node name="Arrowup" type="Sprite2D" parent="arrow keys"]
+position = Vector2(0.5, -8)
+texture = ExtResource("8_bgo2u")
+
+[node name="Arrowdown" type="Sprite2D" parent="arrow keys"]
+position = Vector2(0.5, 8)
+texture = ExtResource("9_t1h3f")
+
+[node name="Arrowleft" type="Sprite2D" parent="arrow keys"]
+position = Vector2(-16.5, 8)
+texture = ExtResource("10_2lmbb")
+
+[node name="Arrowright" type="Sprite2D" parent="arrow keys"]
+position = Vector2(17.5, 8)
+texture = ExtResource("11_n6fjc")
+
+[node name="shoot" type="Node2D" parent="."]
+position = Vector2(480, 1016)
+scale = Vector2(1.02436, 1)
+
+[node name="Space2" type="Sprite2D" parent="shoot"]
+modulate = Color(0, 0, 0, 0.803922)
+self_modulate = Color(0, 0, 0, 0.768627)
+position = Vector2(-90.7884, 3)
+scale = Vector2(1.54668, 1.54668)
+texture = ExtResource("12_udf0o")
+
+[node name="X2" type="Sprite2D" parent="shoot"]
+modulate = Color(0, 0, 0, 0.803922)
+self_modulate = Color(0, 0, 0, 0.768627)
+position = Vector2(96.6456, 3)
+scale = Vector2(1.85908, 1.85908)
+texture = ExtResource("13_v8tmn")
+
+[node name="Space" type="Sprite2D" parent="shoot"]
+position = Vector2(-93.717, 0)
+scale = Vector2(1.54668, 1.54668)
+texture = ExtResource("12_udf0o")
+
+[node name="X" type="Sprite2D" parent="shoot"]
+position = Vector2(93.7169, 0)
+scale = Vector2(1.85908, 1.85908)
+texture = ExtResource("13_v8tmn")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(480, 1141)
+scale = Vector2(1.92, 1.92)
+
+[node name="Shift2" type="Sprite2D" parent="Node2D"]
+modulate = Color(0, 0, 0, 0.788235)
+self_modulate = Color(0, 0, 0, 0.819608)
+position = Vector2(1.5625, -3.64594)
+texture = ExtResource("14_wl42k")
+
+[node name="Shift" type="Sprite2D" parent="Node2D"]
+position = Vector2(0, -5.20837)
+texture = ExtResource("14_wl42k")
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_startgame_pressed"]
