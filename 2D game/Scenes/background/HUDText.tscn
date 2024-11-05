@@ -15,12 +15,12 @@ func _draw():
 				
 	var player = get_node(\"../player\")
 	
-	if player != null:			
+	if player != null and player.lives >= 0:			
 		draw_string(default_font, Vector2(25, 75), \"SCORE: \" + str(MainScene.score),
 				HORIZONTAL_ALIGNMENT_LEFT, 500, 55)
-		if player.lives >= 0:
-			draw_string(default_font, Vector2(25, 130), \"LIVES: \" + str(player.lives),
-				HORIZONTAL_ALIGNMENT_LEFT, 500, 55)
+		var lives_string = \"♥️\".repeat(player.lives)
+		draw_string(default_font, Vector2(450, 75), lives_string,
+				HORIZONTAL_ALIGNMENT_RIGHT, 500, 55)
 
 func _process(delta: float):
 	queue_redraw()

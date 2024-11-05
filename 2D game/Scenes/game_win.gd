@@ -16,6 +16,7 @@ func _on_button_pressed() -> void:
 	
 	get_tree().paused = false  # Unpause the game
 	get_tree().reload_current_scene()  # Reload the current scene
+	MainScene.score = 0;
 
 func game_win():
 	await get_tree().create_timer(1.0).timeout  # Wait for 1 second
