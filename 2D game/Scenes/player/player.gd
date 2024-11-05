@@ -140,7 +140,7 @@ func activate_invincibility() -> void:
 	shield.visible = true
 	shield.modulate.a = 0.5
 	sfx_shield.play()
-	await get_tree().create_timer(3.0).timeout  # Change yield to await
+	await get_tree().create_timer(1.0).timeout  # Change yield to await
 	shield.visible = false
 	shield.modulate.a = 1.0
 	is_invincible = false 

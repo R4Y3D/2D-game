@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://doym14lralqv7"]
+[gd_scene load_steps=9 format=3 uid="uid://doym14lralqv7"]
 
 [ext_resource type="PackedScene" uid="uid://35u4b6xv0kj3" path="res://Scenes/background/Background.tscn" id="1_cpy2o"]
 [ext_resource type="PackedScene" uid="uid://b50jbwwdxkb52" path="res://Scenes/player/Player.tscn" id="1_losjw"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://b5mda5q882tlm" path="res://Scenes/enemies/grey ships/grey ships anim.tscn" id="4_ix7oa"]
 [ext_resource type="PackedScene" uid="uid://bnypod7emwkeu" path="res://Scenes/gameOver.tscn" id="6_k7ka5"]
 [ext_resource type="PackedScene" uid="uid://dl4k60uuse8tj" path="res://Scenes/enemies/red ship/red ship anim.tscn" id="6_r40wi"]
+[ext_resource type="PackedScene" uid="uid://dkvphvyb21maj" path="res://Scenes/enemies/demon/demonAnim.tscn" id="7_vsqqf"]
+[ext_resource type="PackedScene" uid="uid://d3xelyvhagx76" path="res://Scenes/enemies/demon/demonAnim2.tscn" id="8_net2y"]
 
 [node name="main" type="Node2D"]
 
@@ -17,45 +19,52 @@ speed = 500.0
 
 [node name="walls" parent="." instance=ExtResource("3_cn1dg")]
 
-[node name="Enemyanim" parent="." instance=ExtResource("4_ix7oa")]
+[node name="Grey ships 1" parent="." instance=ExtResource("4_ix7oa")]
 position = Vector2(920, 294)
 
-[node name="Enemyanim2" parent="Enemyanim" instance=ExtResource("4_ix7oa")]
+[node name="Enemyanim2" parent="Grey ships 1" instance=ExtResource("4_ix7oa")]
 position = Vector2(0, -77)
 
-[node name="Enemyanim3" parent="Enemyanim" instance=ExtResource("4_ix7oa")]
+[node name="Enemyanim3" parent="Grey ships 1" instance=ExtResource("4_ix7oa")]
 position = Vector2(0, -147)
 
-[node name="Enemyanim4" parent="Enemyanim" instance=ExtResource("4_ix7oa")]
+[node name="Enemyanim4" parent="Grey ships 1" instance=ExtResource("4_ix7oa")]
 position = Vector2(0, -211)
 
-[node name="Enemyanim5" parent="Enemyanim" instance=ExtResource("4_ix7oa")]
+[node name="Enemyanim5" parent="Grey ships 1" instance=ExtResource("4_ix7oa")]
 position = Vector2(-879, 0)
 rotation = 3.14159
 scale = Vector2(1, -1)
 
-[node name="Enemyanim6" parent="Enemyanim" instance=ExtResource("4_ix7oa")]
+[node name="Enemyanim6" parent="Grey ships 1" instance=ExtResource("4_ix7oa")]
 position = Vector2(-879, -77)
 rotation = 3.14159
 scale = Vector2(1, -1)
 
-[node name="Enemyanim7" parent="Enemyanim" instance=ExtResource("4_ix7oa")]
+[node name="Enemyanim7" parent="Grey ships 1" instance=ExtResource("4_ix7oa")]
 position = Vector2(-879, -147)
 rotation = 3.14159
 scale = Vector2(1, -1)
 
-[node name="Enemyanim8" parent="Enemyanim" instance=ExtResource("4_ix7oa")]
+[node name="Enemyanim8" parent="Grey ships 1" instance=ExtResource("4_ix7oa")]
 position = Vector2(-879, -211)
 rotation = 3.14159
 scale = Vector2(1, -1)
 
-[node name="RedShipAnim" parent="." instance=ExtResource("6_r40wi")]
+[node name="red Ships 1" parent="." instance=ExtResource("6_r40wi")]
 position = Vector2(961, 0)
 
-[node name="RedShipAnim2" parent="RedShipAnim" instance=ExtResource("6_r40wi")]
+[node name="RedShipAnim2" parent="red Ships 1" instance=ExtResource("6_r40wi")]
 position = Vector2(-961, 0)
 rotation = 3.14159
 scale = Vector2(1, -1)
 
 [node name="GameOver" parent="." instance=ExtResource("6_k7ka5")]
 visible = false
+
+[node name="DemonAnim" parent="." instance=ExtResource("7_vsqqf")]
+position = Vector2(1111, -102)
+
+[node name="DemonAnim2" parent="." instance=ExtResource("8_net2y")]
+position = Vector2(-148, 161)
+scale = Vector2(-1, 1)
