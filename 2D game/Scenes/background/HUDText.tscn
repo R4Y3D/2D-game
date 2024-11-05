@@ -11,12 +11,15 @@ func _draw():
 	var grey : Color = Color(\"414042\")
 	DisplayServer.window_get_size()
 
-	draw_string(default_font, Vector2(25, 75), \"SCORE: \" + str(MainScene.score),
-				HORIZONTAL_ALIGNMENT_LEFT, 500, 55)
+	
 				
 	var player = get_node(\"../player\")
-				
-	draw_string(default_font, Vector2(25, 130), \"LIVES: \" + str(player.lives),
+	
+	if player != null:			
+		draw_string(default_font, Vector2(25, 75), \"SCORE: \" + str(MainScene.score),
+				HORIZONTAL_ALIGNMENT_LEFT, 500, 55)
+		if player.lives >= 0:
+			draw_string(default_font, Vector2(25, 130), \"LIVES: \" + str(player.lives),
 				HORIZONTAL_ALIGNMENT_LEFT, 500, 55)
 
 func _process(delta: float):
