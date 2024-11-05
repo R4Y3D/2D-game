@@ -147,7 +147,6 @@ func activate_invincibility() -> void:
 
 # Function to play explosion animation and remove player
 func play_explosion() -> void:
-	reset()
 	anim.visible = false
 	explosion_anim.visible = true
 	explosion_anim.play("explode")
