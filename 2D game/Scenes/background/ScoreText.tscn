@@ -3,8 +3,6 @@
 [sub_resource type="GDScript" id="GDScript_b10ie"]
 script/source = "extends Node2D
 
-@onready var score = 0;
-
 func _draw():
 	var default_font : Font = ThemeDB.fallback_font;
 	
@@ -13,14 +11,11 @@ func _draw():
 	var grey : Color = Color(\"414042\")
 	DisplayServer.window_get_size()
 
-	draw_string(default_font, Vector2(100, 100), \"Your Score: \" + str(score),
-				HORIZONTAL_ALIGNMENT_CENTER, 500, 55)
-	
-	draw_string(default_font, Vector2(100, 500), \"Press Space to Restart\", 
-				HORIZONTAL_ALIGNMENT_CENTER, 1000, 55)
-	
+	draw_string(default_font, Vector2(25, 75), \"SCORE: \" + str(MainScene.score),
+				HORIZONTAL_ALIGNMENT_LEFT, 500, 55)
 
-	
+func _process(delta: float):
+	queue_redraw()
 "
 
 [sub_resource type="GDScript" id="GDScript_weqmm"]
