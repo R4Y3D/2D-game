@@ -63,6 +63,7 @@ rotation = 3.14159
 scale = Vector2(1, -1)
 
 [node name="GameWin" parent="." instance=ExtResource("6_t2vkm")]
+visible = false
 script = ExtResource("7_jikbw")
 
 [node name="GameOver" parent="." instance=ExtResource("6_k7ka5")]

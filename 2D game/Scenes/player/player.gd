@@ -21,6 +21,17 @@ var can_shoot: bool = true
 
 func _ready() -> void:
 	shield.visible = false  # Hide the shield at the start of the game
+	
+	# Start a 25-second timer for the win condition
+	var win_timer = Timer.new()
+	win_timer.wait_time = 25.0
+	win_timer.one_shot = true
+	win_timer.connect("timeout", Callable(self, "_on_win_timer_timeout"))
+	add_child(win_timer)
+	win_timer.start()
+
+func _on_win_timer_timeout() -> void:
+	get_node("../GameWin").game_win()
 
 func _process(_delta: float) -> void:
 	handle_movement()  # Call handle_movement without passing delta
